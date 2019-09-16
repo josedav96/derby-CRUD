@@ -1,0 +1,36 @@
+<index:>
+  <div class="container">
+    <h2>Agregar un Usuario</h2>
+    <hr>
+    <form on-submit="createUser(user.name, user.age, user.email, user.password, user.check)">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Nombre</label>
+        <input type="text" class="form-control" id="name" aria-describedby="name"
+          placeholder="Enter your name" value="{{user.name}}">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your name with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Edad</label>
+        <input type="number" class="form-control" id="age" aria-describedby="age"
+          placeholder="Enter your age" value="{{user.age}}">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your age with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+          placeholder="Enter email" value="{{user.email}}">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password" value="{{user.password}}">
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" value="{{user.check}}">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <!--End container-->
