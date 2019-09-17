@@ -1,15 +1,15 @@
 const _ = require('lodash')
-const faker = require('faker')
 
 class Add {
 
     init() {
         this.$root = this.model.root
     }
-
+    
     create() {
+        this.model.set('title', 'Agregar Usuario');
+        this.model.set('realTime', false);
         this.$userData = this.model.at('userData');
-
         this.resetValues()
     }
 
@@ -25,7 +25,6 @@ class Add {
         console.log(docId);
 
         this.resetValues();
-        this.app.history.push('/lista');
 
     }
 

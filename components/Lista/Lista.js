@@ -5,15 +5,34 @@ class Lista {
 
     init() {
         this.$root = this.model.root;
+        this.$usersList = this.model.at('usersList', this.model.scope('users'));
+    }
+    
+    create() {
+        this.search();
     }
 
-    create() {
-        this.model.query('users', {}).subscribe((err) => {
+    search() {
+        const query = this.model.query('users', {}).subscribe((err) => {
             if (err) return alert(err)
-            
+            this.$usersList.set(query.get())
         })
     }
 
+    del(id) {
+        this.$root.del(`users.${id}`);
+        this.search()
+    }
+
+}
+
+Lista.load = (model, params, queries, cb) => {
+    $usersList = model.query('users', {})
+
+    $usersList.subscribe((err) => {
+        if (err) return alert(err)
+        return cb(err)
+    })
 }
 
 // `name` helps us reference the component in our template. With this name, we

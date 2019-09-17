@@ -1,6 +1,6 @@
 <index:>
   <div class="container">
-    <h2>Agregar un Usuario</h2>
+    <h2>{{title}}</h2>
     <hr>
     <form on-submit="createUser(user.name, user.age, user.email, user.password, user.check)">
       <div class="form-group">
@@ -29,7 +29,13 @@
         <input type="checkbox" class="form-check-input" id="exampleCheck1" value="{{user.check}}">
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      {{if !realTime}}
+        <button type="submit" class="btn btn-primary">Submit</button>
+        {{else}}
+          <div class="alert alert-success" role="alert">
+            Esta pagina se actualiza en tiempo real
+          </div>
+      {{/if}}
     </form>
   </div>
 
