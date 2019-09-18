@@ -5,7 +5,7 @@ class Lista {
 
     init() {
         this.$root = this.model.root;
-        this.$usersList = this.model.at('usersList', this.model.scope('users'));
+        this.$usersList = this.model.at('usersList');
     }
     
     create() {
@@ -30,8 +30,7 @@ Lista.load = (model, params, queries, cb) => {
     $usersList = model.query('users', {})
 
     $usersList.subscribe((err) => {
-        if (err) return alert(err)
-        return cb(err)
+        cb(err);
     })
 }
 

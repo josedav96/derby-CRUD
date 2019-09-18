@@ -16,7 +16,7 @@ class Edit {
 }
 
 Edit.load = (model, params, queries, cb) => {
-    $user = model.at(`users.${params.id}`)
+    $user = model.at(`users.${params.id}`);
 
     // Fetch the remote note document, and subscribe to any changes
     // - https://derbyjs.com/docs/derby-0.10/models/backends#loading-data-into-a-model
