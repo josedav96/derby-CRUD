@@ -1,4 +1,5 @@
 
+const _ = require('lodash')
 // Components can be defined as simple Classes. We'll cover methods later on.
 // Right now, we're just going to keep it empty.
 class Lista {
@@ -6,32 +7,29 @@ class Lista {
     init() {
         this.$root = this.model.root;
         this.$usersList = this.model.at('usersList');
-    }
-    
-    create() {
-        this.search();
+
+        //React to changes in a definen model
+        this.model.start('createdUsers', this.$usersList, (usersList) => {
+            const result = _.mapValues(usersList, (user) => {
+                return _.sortBy(user, 'name')
+            })
+            return result.users;
+        })
     }
 
-    search() {
-        const query = this.model.query('users', {}).subscribe((err) => {
+    create() {
+
+        this.model.query('users', {}).subscribe((err) => {
             if (err) return alert(err)
-            this.$usersList.set(query.get())
+            this.$usersList.ref('users', this.$root.at('users'))
         })
+        
     }
 
     del(id) {
         this.$root.del(`users.${id}`);
-        this.search()
     }
 
-}
-
-Lista.load = (model, params, queries, cb) => {
-    $usersList = model.query('users', {})
-
-    $usersList.subscribe((err) => {
-        cb(err);
-    })
 }
 
 // `name` helps us reference the component in our template. With this name, we

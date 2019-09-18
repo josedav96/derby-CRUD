@@ -26,10 +26,10 @@ app.get('/add', (page) => {
 })
 
 app.get('/lista', (page, model, params, next) => {
-    Lista.load(model, null, null, (err) => {
+/*     Lista.load(model, null, null, (err) => {
         if (err) return next(err)
-        page.render(Lista.prototype.name);
-    })
+    }) */
+    page.render(Lista.prototype.name);
 })
 
 app.get('/edit/:id', (page, model, params, next) => {

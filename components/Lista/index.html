@@ -13,7 +13,7 @@
                 </tr>
             </thead>
             <tbody>
-                {{each usersList as #user}}
+                {{each createdUsers as #user}}
                     {{ if #user.id }}
                         <tr>
                             <td scope="row">{{#user.name}}</td>
@@ -21,7 +21,7 @@
                             <td>{{#user.email}}</td>
                             <td>{{#user.check}}</td>
                             <td>
-                                <button class="btn btn-outline-danger" on-click="del(#user.id)">borrar</button>
+                                <button style="margin-right: 10px;" class="btn btn-outline-danger" on-click="del(#user.id)">borrar</button>
                                 <a class="btn btn-outline-warning" href="/edit/{{#user.id}}">Edit</a>
                             </td>
                         </tr>
