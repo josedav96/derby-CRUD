@@ -1,6 +1,5 @@
 
 const _ = require('lodash')
-const Chart = require('chart.js');
 // Components can be defined as simple Classes. We'll cover methods later on.
 // Right now, we're just going to keep it empty.
 class Charts {

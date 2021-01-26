@@ -18,12 +18,10 @@ class Lista {
     }
 
     create() {
-
         this.model.query('users', {}).subscribe((err) => {
             if (err) return alert(err)
             this.$usersList.ref('users', this.$root.at('users'))
-        })
-        
+        })   
     }
 
     del(id) {
